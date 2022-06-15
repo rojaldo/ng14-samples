@@ -5,27 +5,19 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApodService {
+export class BeersService {
 
-  private apodData!: any;
-  public $apod = new Subject<any>();
-
-  get apod() {
-    if(this.apodData) {
-      return this.apodData;
-    }else {
-      return null;
-    }
-  }
+  beers: any[] = [];
+  $beers = new Subject<any[]>();
 
   constructor(private http: HttpClient) { }
 
-  getApod() {
+  getBeers() {
     let observer = {
       next: (data: any) => {
         console.log(data);
-        this.apodData = data;
-        this.$apod.next(data);
+        this.beers = data;
+        this.$beers.next(data);
       },
       error: (err: any) => {
         console.log(err);
@@ -34,7 +26,7 @@ export class ApodService {
         console.log('complete');
       }
     }
-    this.http.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY').subscribe(observer);   
-  
+    this.http.get('https://api.punkapi.com/v2/beers').subscribe(observer);
+
   }
 }

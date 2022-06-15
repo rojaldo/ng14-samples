@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="apod !== null && apod !== undefined">
     <div class="jumbotron">
         <h1 class="display-3">{{apod.title}}</h1>
         <p class="lead">{{apod.date}}</p>
@@ -12,3 +12,6 @@
         </p>
     </div>
 </div>
+<div class="spinner-border" role="status" *ngIf="!(apod !== null && apod !== undefined)">
+    <span class="visually-hidden">Loading...</span>
+  </div>

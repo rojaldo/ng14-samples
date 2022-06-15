@@ -10,6 +10,7 @@ import { DisplayComponent } from './components/calculator/display/display.compon
 import { KeyboardComponent } from './components/calculator/keyboard/keyboard.component';
 import { ApodComponent } from './components/apod/apod/apod.component';
 import {HttpClientModule} from '@angular/common/http';
+import { BeersComponent } from './components/beers/beers/beers.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
     HeroesComponent,
     DisplayComponent,
     KeyboardComponent,
-    ApodComponent
+    ApodComponent,
+    BeersComponent
   ],
   imports: [
     BrowserModule,
