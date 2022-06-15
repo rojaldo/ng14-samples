@@ -8,7 +8,9 @@ import { Subject } from 'rxjs';
 export class BeersService {
 
   beers: any[] = [];
+  downloaded = false;
   $beers = new Subject<any[]>();
+
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +19,9 @@ export class BeersService {
       next: (data: any) => {
         console.log(data);
         this.beers = data;
+        this.downloaded = true;
         this.$beers.next(data);
+
       },
       error: (err: any) => {
         console.log(err);
