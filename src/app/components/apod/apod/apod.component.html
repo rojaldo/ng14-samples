@@ -1,17 +1,22 @@
-<div class="container" *ngIf="apod !== null && apod !== undefined">
+
+<div class="container mt-3" *ngIf="apodData !== null && apodData !== undefined">
+    <div class="container-fluid d-flex">
+        <ngb-datepicker class="mx-auto" #dp [(ngModel)]="selectedDate" (dateSelect)="onDateSelected()"></ngb-datepicker>
+    </div>
+    
     <div class="jumbotron">
-        <h1 class="display-3">{{apod.title}}</h1>
-        <p class="lead">{{apod.date}}</p>
+        <h1 class="display-3">{{apodData.title}}</h1>
+        <p class="lead">{{apodData.date}}</p>
         <div class="container-fluid d-flex">
-            <img [src]="apod.url" alt="" class="mx-auto">            
+            <img [src]="apodData.url" alt="" class="mx-auto">            
         </div>
         <hr class="my-2">
-        <p>{{apod.explanation}}</p>
+        <p>{{apodData.explanation}}</p>
         <p class="lead">
-            <a class="btn btn-primary btn-lg" [href]="apod.hdurl" role="button">HD Image</a>
+            <a class="btn btn-primary btn-lg" [href]="apodData.hdurl" role="button">HD Image</a>
         </p>
     </div>
 </div>
-<div class="spinner-border" role="status" *ngIf="!(apod !== null && apod !== undefined)">
+<div class="spinner-border" role="status" *ngIf="!(apodData !== null && apodData !== undefined)">
     <span class="visually-hidden">Loading...</span>
   </div>

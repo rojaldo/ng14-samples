@@ -8,17 +8,26 @@ import { ApodService } from 'src/app/services/apod.service';
 })
 export class ApodComponent implements OnInit {
 
-  apod!:any;
+  apodData!: any;
+  selectedDate!: any;
 
   constructor(private service: ApodService) { }
 
   ngOnInit(): void {
-      this.service.$apod.subscribe(data => {
-        this.apod = data;
-      });
-  
-      this.service.getApod();
-  
+
+    this.service.$apod.subscribe(data => {
+      this.apodData = data;
+    });
+
+    this.service.getApod();
+
+  }
+
+  onDateSelected() {
+    // date to string
+    let date = this.selectedDate.year + '-' + this.selectedDate.month + '-' + this.selectedDate.day;
+    console.log(date);
+    this.service.getApod(date);
   }
 
 }
