@@ -11,6 +11,8 @@ import { KeyboardComponent } from './components/calculator/keyboard/keyboard.com
 import { ApodComponent } from './components/apod/apod/apod.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BeersComponent } from './components/beers/beers/beers.component';
+import { FormComponent } from './components/heroes/form/form.component';
+import { ListComponent } from './components/heroes/list/list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { BeersComponent } from './components/beers/beers/beers.component';
     DisplayComponent,
     KeyboardComponent,
     ApodComponent,
-    BeersComponent
+    BeersComponent,
+    FormComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

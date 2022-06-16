@@ -15,6 +15,7 @@ export class BeersService {
   constructor(private http: HttpClient) { }
 
   getBeers() {
+    if(this.beers.length === 0) {
     let observer = {
       next: (data: any) => {
         console.log(data);
@@ -31,6 +32,10 @@ export class BeersService {
       }
     }
     this.http.get('https://api.punkapi.com/v2/beers').subscribe(observer);
+  }
+  else {
+    this.$beers.next(this.beers);
+  }
 
   }
 }

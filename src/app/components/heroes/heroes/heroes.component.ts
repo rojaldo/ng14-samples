@@ -10,25 +10,13 @@ import { HeroesService } from 'src/app/services/heroes.service';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
-  heroName = '';
-  heroDescription = '';
 
-  isDisabled() {
-    return this.heroName === '';
-  }
   constructor(private service: HeroesService) { 
     this.heroes = service.heroes;
   }
 
-  addHero() {
-    if (this.heroName !== '') {
-      this.service.addHero(new Hero(this.heroName, this.heroDescription));
-      this.heroName = '';
-      this.heroDescription = '';
-
-    } else {
-      alert('Please enter a name');
-    }
+  addHero(hero: Hero) {
+      this.service.addHero(hero);
   }
 
   ngOnInit(): void {

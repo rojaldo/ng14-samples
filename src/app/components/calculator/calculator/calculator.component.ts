@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CalculatorService } from 'src/app/services/calculator.service';
 
 @Component({
@@ -6,20 +6,31 @@ import { CalculatorService } from 'src/app/services/calculator.service';
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss']
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent implements OnInit, OnDestroy {
 
   constructor(private service: CalculatorService) { }
 
   ngOnInit(): void {
+    console.log('CalculatorComponent ngOnInit');
+    this.service.$display.subscribe(value => {
+      this.display = value;
+    }
+    );
+    
+  }
+
+  ngOnDestroy(): void {
+    console.log('CalculatorComponent ngOnDestroy');
+    
   }
 
   display = '';
 
   handleClick(value: string | number) {
     if (typeof value === 'string') {
-      this.display = this.service.handleString(value);
+      this.service.handleString(value);
     } else if (typeof value === 'number') {
-      this.display = this.service.handleNumber(value);
+      this.service.handleNumber(value);
     }
   }
 

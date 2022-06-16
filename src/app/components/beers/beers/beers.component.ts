@@ -16,11 +16,7 @@ export class BeersComponent implements OnInit {
     this.service.$beers.subscribe(data => {
       this.beers = data;
     });
-    if(this.service.downloaded === false) {
       this.service.getBeers();
-    }else {
-      this.beers = this.service.beers;
-    }
   }
 
 }

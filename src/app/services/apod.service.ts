@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class ApodService {
 
-  private apodData!: any;
+  private apodData: any = null;
   public $apod = new Subject<any>();
 
   get apod() {
@@ -21,6 +21,7 @@ export class ApodService {
   constructor(private http: HttpClient) { }
 
   getApod() {
+    if(this.apodData === null) {
     let observer = {
       next: (data: any) => {
         console.log(data);
@@ -35,6 +36,9 @@ export class ApodService {
       }
     }
     this.http.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY').subscribe(observer);   
+  }else {
+    this.$apod.next(this.apodData);
+  }
   
   }
 }

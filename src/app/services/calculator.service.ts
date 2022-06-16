@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 enum States {
   Init,
@@ -18,6 +19,11 @@ export class CalculatorService {
   private operator = '';
   private result = 0;
   private display = '';
+  public $display = new BehaviorSubject<string>('');
+
+  get myDisplay(): string {
+    return this.display;
+  }
 
 
   constructor() { }
@@ -52,7 +58,7 @@ export class CalculatorService {
       default:
         break;
     }
-    return this.display
+    this.$display.next(this.display);
   }
 
   private resolve(): number {
@@ -97,7 +103,7 @@ export class CalculatorService {
       default:
         break;
     }
-    return this.display;
+    this.$display.next(this.display);
   }
 
 

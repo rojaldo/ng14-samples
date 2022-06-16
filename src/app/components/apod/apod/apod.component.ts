@@ -13,16 +13,12 @@ export class ApodComponent implements OnInit {
   constructor(private service: ApodService) { }
 
   ngOnInit(): void {
-    if(this.service.apod !== null) {
-      this.apod = this.service.apod;
-    }else{
       this.service.$apod.subscribe(data => {
         this.apod = data;
       });
   
       this.service.getApod();
   
-    }
   }
 
 }
