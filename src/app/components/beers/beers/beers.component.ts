@@ -17,10 +17,7 @@ export class BeersComponent implements OnInit {
 
   rangeView = [this.minValue, this.maxValue];
 
-  options: Options = {
-    floor: 0,
-    ceil: 60
-  };
+
 
   constructor(private service: BeersService) { }
 
@@ -31,10 +28,10 @@ export class BeersComponent implements OnInit {
     });
       this.service.getBeers();
   }
-  handleChange(event: any) {
+  handleChange(event: number[]) {
     console.log(event);
-    this.rangeView[0] = event.value;
-    this.rangeView[1] = event.highValue;
+    this.rangeView[0] = event[0];
+    this.rangeView[1] = event[1];
     this.showBeers = this.getFilteredBeers();
   }
 

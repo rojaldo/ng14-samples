@@ -14,6 +14,9 @@ import { BeersComponent } from './components/beers/beers/beers.component';
 import { FormComponent } from './components/heroes/form/form.component';
 import { ListComponent } from './components/heroes/list/list.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { BeersListComponent } from './components/beers/beers-list/beers-list.component';
+import { BeersRangeComponent } from './components/beers/beers-range/beers-range.component';
+import { AbvPipe } from './pipes/abv.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     ApodComponent,
     BeersComponent,
     FormComponent,
-    ListComponent
+    ListComponent,
+    BeersListComponent,
+    BeersRangeComponent,
+    AbvPipe
   ],
   imports: [
     BrowserModule,
