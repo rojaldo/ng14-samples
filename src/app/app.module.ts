@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BeersComponent } from './components/beers/beers/beers.component';
 import { FormComponent } from './components/heroes/form/form.component';
 import { ListComponent } from './components/heroes/list/list.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ListComponent } from './components/heroes/list/list.component';
     BrowserModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 <div class="container" *ngIf="beers.length > 0">
+    <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (userChange)="handleChange($event)"></ngx-slider>
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 my-2" *ngFor="let beer of beers">
+        <div class="col-sm-12 col-md-6 col-lg-4 my-2" *ngFor="let beer of showBeers">
             <div class="card h-100">
                 <img class="card-img-top mx-auto mt-2" [src]="beer.image_url" alt="" style="width: 80px">
                 <div class="card-body">
