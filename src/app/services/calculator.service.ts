@@ -8,9 +8,7 @@ enum States {
   Result
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CalculatorService {
 
   private currentState = States.Init;

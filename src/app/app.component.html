@@ -1,28 +1,17 @@
-<ul ngbNav #nav="ngbNav" class="nav-tabs" [(activeId)]="active">
-  <li [ngbNavItem]="1">
-    <a ngbNavLink>Calculator</a>
-    <ng-template ngbNavContent>
-      <app-calculator></app-calculator>
-    </ng-template>
-  </li>
-  <li [ngbNavItem]="2">
-    <a ngbNavLink>Heroes</a>
-    <ng-template ngbNavContent>      
-      <app-heroes></app-heroes>
-  </ng-template>
-  </li>
-  <li [ngbNavItem]="3">
-    <a ngbNavLink>Apod</a>
-    <ng-template ngbNavContent>      
-      <app-apod></app-apod>
-  </ng-template>
-  </li>
-  <li [ngbNavItem]="4">
-    <a ngbNavLink>Beers</a>
-    <ng-template ngbNavContent>      
-      <app-beers></app-beers>
-  </ng-template>
-  </li>
-</ul>
-<div [ngbNavOutlet]="nav"></div>
-
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" href="#">Examples</a>
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+    aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item"><a class="nav-link" routerLink="calculator">Calculator</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="heroes">Heroes</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="apod">Apod</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="beers">Beers</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>

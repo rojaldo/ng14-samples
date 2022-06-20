@@ -20,6 +20,10 @@ import { AbvPipe } from './pipes/abv.pipe';
 import { ApodPipe } from './pipes/apod.pipe';
 import { ApodPickerComponent } from './components/apod/apod-picker/apod-picker.component';
 import { ApodViewerComponent } from './components/apod/apod-viewer/apod-viewer.component';
+import { AppRoutingModule } from './modules/app-routing.module';
+import { ErrorComponent } from './components/error/error/error.component'; // CLI imports AppRoutingModule
+import { CalculatorService } from './services/calculator.service';
+
 
 @NgModule({
   declarations: [
@@ -37,16 +41,18 @@ import { ApodViewerComponent } from './components/apod/apod-viewer/apod-viewer.c
     AbvPipe,
     ApodPipe,
     ApodPickerComponent,
-    ApodViewerComponent
+    ApodViewerComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
     HttpClientModule,
-    NgxSliderModule
+    NgxSliderModule,
+    AppRoutingModule 
   ],
-  providers: [],
+  providers: [CalculatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
