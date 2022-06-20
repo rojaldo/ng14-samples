@@ -1,22 +1,3 @@
 
-<div class="container mt-3" *ngIf="apodData !== null && apodData !== undefined">
-    <div class="container-fluid d-flex">
-        <ngb-datepicker class="mx-auto" #dp [(ngModel)]="selectedDate" (dateSelect)="onDateSelected()"></ngb-datepicker>
-    </div>
-    
-    <div class="jumbotron">
-        <h1 class="display-3">{{apodData.title}}</h1>
-        <p class="lead">{{apodData.date | apod}}</p>
-        <div class="container-fluid d-flex">
-            <img [src]="apodData.url" alt="" class="mx-auto">            
-        </div>
-        <hr class="my-2">
-        <p>{{apodData.explanation}}</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" [href]="apodData.hdurl" role="button">HD Image</a>
-        </p>
-    </div>
-</div>
-<div class="spinner-border" role="status" *ngIf="!(apodData !== null && apodData !== undefined)">
-    <span class="visually-hidden">Loading...</span>
-  </div>
+    <app-apod-picker (onDatePicked)="onDateSelected($event)"></app-apod-picker>
+    <app-apod-viewer [apodDate]="dateString"></app-apod-viewer>

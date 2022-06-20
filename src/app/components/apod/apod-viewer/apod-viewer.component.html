@@ -1,0 +1,15 @@
+<div class="jumbotron" *ngIf="(apodInfo !== null && apodInfo !== undefined)">
+    <h1 class="display-3">{{apodInfo.title}}</h1>
+    <p class="lead">{{apodInfo.date | apod}}</p>
+    <div class="container-fluid d-flex">
+        <img [src]="apodInfo.url" alt="" class="mx-auto">
+    </div>
+    <hr class="my-2">
+    <p>{{apodInfo.explanation}}</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" [href]="apodInfo.hdurl" role="button">HD Image</a>
+    </p>
+</div>
+<div class="spinner-border" role="status" *ngIf="!(apodInfo !== null && apodInfo !== undefined)">
+    <span class="visually-hidden">Loading...</span>
+</div>

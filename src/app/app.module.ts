@@ -18,6 +18,8 @@ import { BeersListComponent } from './components/beers/beers-list/beers-list.com
 import { BeersRangeComponent } from './components/beers/beers-range/beers-range.component';
 import { AbvPipe } from './pipes/abv.pipe';
 import { ApodPipe } from './pipes/apod.pipe';
+import { ApodPickerComponent } from './components/apod/apod-picker/apod-picker.component';
+import { ApodViewerComponent } from './components/apod/apod-viewer/apod-viewer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ApodPipe } from './pipes/apod.pipe';
     BeersListComponent,
     BeersRangeComponent,
     AbvPipe,
-    ApodPipe
+    ApodPipe,
+    ApodPickerComponent,
+    ApodViewerComponent
   ],
   imports: [
     BrowserModule,
