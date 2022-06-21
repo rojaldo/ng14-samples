@@ -14,8 +14,16 @@ export class ReactiveFormComponent implements OnInit {
   }
   profileForm = this.fb.group({
     name: ['', Validators.required],
-    description: ['']
+    description: [''],
+    
   });
+
+  handleKey(event: any) {
+    console.log(event.target.value);
+    console.log(this.profileForm.controls.name.valid);
+    console.log(this.profileForm.controls.description.valid);
+    
+  }
 
 
   updateProfile() {
@@ -28,5 +36,6 @@ export class ReactiveFormComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
+    this.profileForm.reset();
   }
 }
