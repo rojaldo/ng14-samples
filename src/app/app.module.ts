@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CalculatorComponent } from './components/calculator/calculator/calculator.component';
 import { HeroesComponent } from './components/heroes/heroes/heroes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplayComponent } from './components/calculator/display/display.component';
 import { KeyboardComponent } from './components/calculator/keyboard/keyboard.component';
 import { ApodComponent } from './components/apod/apod/apod.component';
@@ -24,6 +24,7 @@ import { AppRoutingModule } from './modules/app-routing.module';
 import { ErrorComponent } from './components/error/error/error.component'; // CLI imports AppRoutingModule
 import { CalculatorService } from './services/calculator.service';
 import { TemplateFormComponent } from './components/form/template-form/template-form.component';
+import { ReactiveFormComponent } from './components/form/reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -44,12 +45,14 @@ import { TemplateFormComponent } from './components/form/template-form/template-
     ApodPickerComponent,
     ApodViewerComponent,
     ErrorComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgxSliderModule,
     AppRoutingModule 

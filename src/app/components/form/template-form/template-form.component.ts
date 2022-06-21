@@ -8,11 +8,22 @@ import { Hero } from 'src/app/models/Hero';
 })
 export class TemplateFormComponent implements OnInit {
 
-  hero = {name: 'Thor', description: 'God of Thunder'};
+  hero = {name: '', description: '', email: '', phone: 0, postalCode: 0};
 
   submitted = false;
 
   nameRegex = /^[a-zA-Z]{3,10}$/
+  // regex from 0 to 10 characters long
+  descriptionRegex = /[\w\W]{1,10}$/
+
+  // email regex
+  emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+
+  // phone regex
+  phoneRegex = /^[0-9]{9}$/
+
+  postalCodeRegex = /^[0-9]{5}$/
+
 
 
   constructor() { }
@@ -21,10 +32,12 @@ export class TemplateFormComponent implements OnInit {
 
   }
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() { 
+    this.submitted = true; 
+  }
 
   newHero() {
-    this.hero = new Hero('', '');
+    this.hero = {name: '', description: '', email: '', phone: 0, postalCode: 0}
   }
 
 

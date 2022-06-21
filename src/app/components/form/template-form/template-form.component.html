@@ -9,7 +9,36 @@
 
     <div class="form-group">
         <label for="alterEgo">Description</label>
-        <input type="text" class="form-control" id="alterEgo" [(ngModel)]="hero.description" name="alterEgo">
+        <input type="text" class="form-control" id="description" [(ngModel)]="hero.description" #description="ngModel" name="description" required [pattern]="descriptionRegex">
+        <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+            Description is required
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="alterEgo">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="hero.email" #email="ngModel" name="email" required [pattern]="emailRegex">
+        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+            Email is required
+        </div>
+    </div>
+
+    
+    <div class="form-group">
+        <label for="alterEgo">Phone</label>
+        <input type="tel" class="form-control" id="phone" [(ngModel)]="hero.phone" #phone="ngModel" name="phone" required [pattern]="phoneRegex">
+        <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+            Phone is required
+        </div>
+    </div>
+
+    
+    <div class="form-group">
+        <label for="alterEgo">Postal Code</label>
+        <input type="number" class="form-control" id="postalCode" [(ngModel)]="hero.postalCode" #postalCode="ngModel" name="postalCode" required [pattern]="postalCodeRegex">
+        <div [hidden]="postalCode.valid || postalCode.pristine" class="alert alert-danger">
+            Email is required
+        </div>
     </div>
 
     <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
