@@ -23,6 +23,7 @@ import { ApodViewerComponent } from './components/apod/apod-viewer/apod-viewer.c
 import { AppRoutingModule } from './modules/app-routing.module';
 import { ErrorComponent } from './components/error/error/error.component'; // CLI imports AppRoutingModule
 import { CalculatorService } from './services/calculator.service';
+import { TemplateFormComponent } from './components/form/template-form/template-form.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { CalculatorService } from './services/calculator.service';
     ApodPipe,
     ApodPickerComponent,
     ApodViewerComponent,
-    ErrorComponent
+    ErrorComponent,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,
