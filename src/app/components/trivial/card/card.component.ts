@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Card } from 'src/app/models/Card';
 
 @Component({
@@ -9,6 +9,8 @@ import { Card } from 'src/app/models/Card';
 export class CardComponent implements OnInit {
 
   @Input() cardInfo!: Card;
+  @Output() onResponse = new EventEmitter<boolean>();
+
   classes = [
     'btn btn-primary',
     'btn btn-primary',
@@ -25,6 +27,8 @@ export class CardComponent implements OnInit {
     this.cardInfo.answered = true;
     this.cardInfo.response = answer;
     console.log(answer, i);
+    this.onResponse.emit(answer === this.cardInfo.correctAnswer);
+
     this.classes = [];
     for (let i = 0; i < this.cardInfo.answers.length; i++) {
       this.classes.push(this.getClass(this.cardInfo.answers[i], i));
