@@ -1,9 +1,9 @@
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">{{cardInfo.question}}</h4>
+        <h4 class="card-title" [innerHtml]="cardInfo.question"></h4>
         <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button"
-                *ngFor="let answer of cardInfo.answers">{{answer}}</button>
+            <button [class]="classes[i]" type="button"
+                *ngFor="let answer of cardInfo.answers; let i=index" (click)="handleClick(answer, i)" [disabled]="cardInfo.answered" [innerHtml]="answer"></button>
         </div>
     </div>
 </div>
