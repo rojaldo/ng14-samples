@@ -6,10 +6,11 @@ import { CalculatorComponent } from '../components/calculator/calculator/calcula
 import { ErrorComponent } from '../components/error/error/error.component';
 import { ReactiveFormComponent } from '../components/form/reactive-form/reactive-form.component';
 import { TemplateFormComponent } from '../components/form/template-form/template-form.component';
+import { TrivialComponent } from '../components/trivial/trivial/trivial.component';
 import { SampleGuard } from '../guards/sample.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'form', pathMatch: 'full' },
+    { path: '', redirectTo: 'trivial', pathMatch: 'full' },
     { path: 'calculator', component: CalculatorComponent },
     {
         path: 'heroes',
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: 'apod', component: ApodComponent },
     { path: 'beers', component: BeersComponent },
     { path: 'form', component: ReactiveFormComponent },
+    { path: 'trivial', component: TrivialComponent },
     { path: '**', component: ErrorComponent },
 ]; // sets up routes constant where you define your routes    
 

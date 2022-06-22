@@ -25,6 +25,8 @@ import { ErrorComponent } from './components/error/error/error.component'; // CL
 import { CalculatorService } from './services/calculator.service';
 import { TemplateFormComponent } from './components/form/template-form/template-form.component';
 import { ReactiveFormComponent } from './components/form/reactive-form/reactive-form.component';
+import { TrivialComponent } from './components/trivial/trivial/trivial.component';
+import { CardComponent } from './components/trivial/card/card.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { ReactiveFormComponent } from './components/form/reactive-form/reactive-
     ApodViewerComponent,
     ErrorComponent,
     TemplateFormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    TrivialComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
